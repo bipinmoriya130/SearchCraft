@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results — SearchCraft</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Top Search Bar Header -->
+  <header class="results-header-bar">
+    <a href="/" class="brand-logo">
+      <span class="brand-icon">🔍</span>
+      <span>Search<span class="brand-accent">Craft</span></span>
+    </a>
+
+    <div class="search-box-wrapper" style="flex: 1;">
+      <form id="resultsSearchForm" action="/results.html" method="GET">
+        <div class="search-input-group">
+          <input 
+            type="text" 
+            id="resultsSearchInput" 
+            name="q" 
+            class="search-input" 
+            placeholder="Search indexed web pages..." 
+            autocomplete="off" 
+            required 
+          />
+          <button type="submit" class="btn btn-primary btn-sm">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <nav class="nav-links">
+      <a href="/admin.html" class="nav-link">Admin Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- Query Latency & Results Meta Bar -->
+  <section id="metaBar" class="results-meta-bar" style="display: none;">
+    <span id="resultsMetaText">Loading results...</span>
+  </section>
+
+  <!-- Main Results Container -->
+  <main class="results-container">
+    <!-- Loading Indicator -->
+    <div id="loadingState" class="empty-state">
+      <div class="spinner" style="width: 2rem; height: 2rem; border-color: var(--primary); border-top-color: transparent; margin-bottom: 1rem;"></div>
+      <p>Searching inverted index and ranking documents...</p>
+    </div>
+
+    <!-- Error Alert Banner -->
+    <div id="errorBanner" class="alert alert-danger"></div>
+
+    <!-- Results List -->
+    <div id="resultsList"></div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <div class="empty-state-icon">📄</div>
+      <h3>No matching indexed documents found</h3>
+      <p style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+        Your search did not match any indexed pages in the database.
+      </p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <a href="/" class="btn btn-secondary">Try Another Query</a>
+        <a href="/admin.html" class="btn btn-primary">Index New Pages</a>
+      </div>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div id="paginationControls" class="pagination-wrapper" style="display: none;">
+      <button id="prevPageBtn" class="page-btn">← Previous</button>
+      <span id="pageInfoText" class="page-info">Page 1 of 1</span>
+      <button id="nextPageBtn" class="page-btn">Next →</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>SearchCraft • Educational Web Search Engine built with Java 17, Spring Boot, MySQL & Inverted Index</p>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initSearchResults();
+    });
+  </script>
+</body>
+</html>

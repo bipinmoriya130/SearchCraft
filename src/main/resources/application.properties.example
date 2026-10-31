@@ -1,0 +1,26 @@
+# ===================================================================
+# SearchCraft Application Configuration Template
+# COPY this file to application.properties and provide your actual credentials.
+# NEVER commit your real database passwords to version control!
+# ===================================================================
+spring.application.name=searchcraft
+server.port=8080
+
+# Database Configuration (MySQL)
+# Set your environment variables: DB_URL, DB_USERNAME, DB_PASSWORD
+spring.datasource.url=${DB_URL:jdbc:mysql://localhost:3306/searchcraft_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+spring.datasource.username=${DB_USERNAME:YOUR_MYSQL_USERNAME}
+spring.datasource.password=${DB_PASSWORD:YOUR_MYSQL_PASSWORD}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# Crawling and Fetching Limits
+searchcraft.crawler.connect-timeout-ms=5000
+searchcraft.crawler.read-timeout-ms=7000
+searchcraft.crawler.max-content-size-bytes=2097152
+searchcraft.crawler.user-agent=SearchCraft-Bot/1.0 (+http://localhost:8080/bot)

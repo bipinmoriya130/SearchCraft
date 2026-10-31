@@ -1,0 +1,39 @@
+# Maven build target directory
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse IDE files
+.settings/
+.project
+.classpath
+
+# VS Code files
+.vscode/
+
+# Local configuration files with real secrets
+.env
+.env.local
+application-local.properties
+
+# Log files
+*.log
+logs/
+
+# Operating system metadata
+.DS_Store
+Thumbs.db

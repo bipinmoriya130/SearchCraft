@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SearchCraft — Build Your Own Search Engine Using Java</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <a href="/" class="brand-logo">
+      <span class="brand-icon">🔍</span>
+      <span>Search<span class="brand-accent">Craft</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="/admin.html" class="nav-link">Admin Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- Main Hero Search Section -->
+  <main class="home-container">
+    <div class="hero-branding">
+      <h1 class="hero-title">Search<span class="brand-accent">Craft</span></h1>
+      <p class="hero-subtitle">Fast In-Memory Inverted Index Engine Powered by Java & Spring Boot</p>
+    </div>
+
+    <!-- Search Form -->
+    <div class="search-box-wrapper">
+      <form id="searchForm" action="/results.html" method="GET">
+        <div class="search-input-group">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="searchInput" 
+            name="q" 
+            class="search-input" 
+            placeholder="Search indexed web pages..." 
+            autocomplete="off" 
+            required
+            autofocus
+          />
+          <button type="button" id="clearBtn" class="search-clear-btn" title="Clear search">✕</button>
+        </div>
+      </form>
+
+      <!-- History Suggestions Dropdown -->
+      <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
+    </div>
+
+    <!-- Search Buttons -->
+    <div class="search-actions">
+      <button type="button" id="submitSearchBtn" class="btn btn-primary">Search with SearchCraft</button>
+      <button type="button" id="curiousBtn" class="btn btn-secondary">I'm Feeling Curious</button>
+    </div>
+
+    <!-- Sample Search Topics -->
+    <div class="sample-tags-wrapper">
+      <p class="sample-tags-label">Popular search topics:</p>
+      <div class="tags-list">
+        <a href="/results.html?q=Java" class="tag-badge">Java</a>
+        <a href="/results.html?q=Spring+Boot" class="tag-badge">Spring Boot</a>
+        <a href="/results.html?q=Data+Structures" class="tag-badge">Data Structures</a>
+        <a href="/results.html?q=Inverted+Index" class="tag-badge">Inverted Index</a>
+        <a href="/results.html?q=REST+API" class="tag-badge">REST API</a>
+        <a href="/results.html?q=MySQL" class="tag-badge">MySQL</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>SearchCraft • Educational Web Search Engine built with Java 17, Spring Boot, MySQL & Inverted Index</p>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+    // Homepage search initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      initSearchHome();
+    });
+  </script>
+</body>
+</html>
